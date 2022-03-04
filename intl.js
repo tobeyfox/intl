@@ -28,6 +28,10 @@ const I = new Proxy((() =>
     {
         obj.dict[name] = value;
         return true;
+    },
+    setLanguage(lang)
+    {
+        obj.lang = lang;
     }
 });
 
