@@ -1,0 +1,2 @@
+# intl
+Minimalistic internationalization library
