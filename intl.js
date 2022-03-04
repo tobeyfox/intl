@@ -16,24 +16,17 @@ const I = new Proxy((() => {
 })(),
     {
         get: function (obj, name) {
-            if (name === '_lang') {
-                return obj.lang;
-            }
-            else if (name === 'setLanguage')
+            if (name === 'setLanguage')
             {
                 return (lang) => { obj.lang = lang; };
             }
             return obj.get(name);
-
         },
         set: function (obj, name, value) {
-            if (name === '_lang') {
-                obj.lang = value;
-            } else {
-                obj.dict[name] = value;
-            }
+            obj.dict[name] = value;
             return true;
         }
-    });
+    }
+);
 
 export { I };
