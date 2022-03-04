@@ -1,0 +1,16 @@
+{
+  "name": "intl",
+  "version": "1.0.0",
+  "description": "minimalistic internationalization library",
+  "main": "intl.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobeyfox/intl.git"
+  },
+  "author": "Tobias Reimann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobeyfox/intl/issues"
+  },
+  "homepage": "https://github.com/tobeyfox/intl#readme"
+}
