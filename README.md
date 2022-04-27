@@ -12,14 +12,14 @@ npm install tobeyfox/intl
 ```
 import { I } from 'intl';
 
-//define strings in as many languages as needed
+// -- 1 --
 I.Back = { de: 'Zurück', en: 'Back' };
 I.Print = { de: 'Drucken', en: 'Print' };
 
-//set the language to be used base on user preferences or browser settings.
-I.setLanguage('de');
+// -- 2 --
+I.setLanguages(['en', 'de']);
 
-//Use just like normal strings
+// -- 3 --
 render() {
     return (
         <div>
@@ -28,3 +28,7 @@ render() {
     );
 }
 ```
+
+1. Define strings in as many languages as needed
+2. Tell the library wich languages are ready to be served. The first entry will be used as default if none of them matches to the users browser preferences.
+3. Language is selected based on the users preferences in his browser.
