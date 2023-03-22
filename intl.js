@@ -18,12 +18,20 @@ const I = new Proxy((() => {
     {
         get: function (obj, name) {
             if (name === 'setLanguages') {
-                return (lang) => {
-                    if (!Array.isArray(lang) || !lang.length) return;
-                    obj.availableLanguages = lang;
-                    obj.selectedLanguage = lang[0];
+                return (available, requested) => {
+                    if (!Array.isArray(available) || !available.length) return;
+                    obj.availableLanguages = available;
+                    obj.selectedLanguage = available[0];
 
-                    let requestedLanguages = navigator.languages.map(l => l.toLocaleLowerCase().substring(0,2));
+                    let requestedLanguages = [];
+                    if (Array.isArray(requested))
+                    {
+                        requestedLanguages = requested.map(l => l.toLocaleLowerCase().substring(0,2));
+                    }
+                    else if (navigator && Array.isArray(navigator.languages))
+                    {
+                        requestedLanguages = navigator.languages.map(l => l.toLocaleLowerCase().substring(0,2));
+                    }
                     for (let rl of requestedLanguages) {
                         if (obj.availableLanguages.indexOf(rl) >= 0) {
                             obj.selectedLanguage = rl;
