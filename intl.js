@@ -38,7 +38,6 @@ const I = new Proxy((() => {
                             break;
                         }
                     }
-
                 };
             }
             return obj.get(name);
